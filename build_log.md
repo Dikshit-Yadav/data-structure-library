@@ -54,3 +54,41 @@ The original proposal contained all three data structures in a single document, 
 Successfully reorganized the project documentation into three independent design proposals. Each proposal now contains its own public API, internal representation, complexity estimates, memory management strategy, and design rationale. The documentation is more structured, easier to review, and better reflects the engineering decisions behind each data structure.
 
 ---
+
+
+# Build Log
+
+## Entry 3
+
+**Date:** June 24, 2026
+
+**Duration:** 4 Hours
+
+**Goal:**
+Implement the core memory management functionality of the DynamicArray, including object construction, destruction, copying, and assignment.
+
+**Problem Encountered:**
+Managing memory manually was more complex than expected. Since the implementation uses dynamic memory allocation, I needed to ensure that copied DynamicArray objects do not share the same memory. I also had to understand how object lifetime is handled when allocating raw memory.
+
+**What I Tried:**
+
+* Implemented the default constructor to initialize size, capacity, and allocate memory.
+* Implemented the destructor to properly release allocated memory and prevent memory leaks.
+* Implemented the copy constructor to create a deep copy of another DynamicArray.
+* Implemented the copy assignment operator and added a self-assignment check.
+* Studied the difference between shallow copy and deep copy.
+* Explored how STL containers manage object lifetime internally.
+* Investigated manual memory management using `malloc()`, `free()`, and placement new.
+* Tested copying arrays containing primitive types and strings.
+
+**Outcome:**
+Successfully implemented the Rule of Three for DynamicArray:
+
+* Constructor
+* Destructor
+* Copy Constructor
+* Copy Assignment Operator
+
+The DynamicArray now supports independent copies of objects without shared ownership issues. Memory is released correctly, and copied arrays maintain their own storage, preventing double deletion and dangling pointer problems.
+
+---
