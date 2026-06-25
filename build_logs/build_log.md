@@ -127,3 +127,42 @@ Successfully implemented the primary DynamicArray modification operations:
 The DynamicArray now supports dynamic growth, insertion at arbitrary positions, element removal, and automatic capacity expansion. The resizing strategy doubles the capacity when the array becomes full, providing amortized O(1) append performance while maintaining contiguous memory storage.
 
 ---
+
+
+## Entry 5
+
+**Date:** June 25, 2026
+
+**Duration:** 1 Hours
+
+**Goal:**
+Implement the remaining utility and element access methods for the DynamicArray.
+
+**Problem Encountered:**
+The main challenge was ensuring safe element access through proper index validation. Methods such as `get()` and `set()` needed to prevent invalid memory access while maintaining constant-time performance.
+
+**What I Tried:**
+
+* Implemented the `get()` method to retrieve elements using index-based access.
+* Added bounds checking and exception handling for invalid indices.
+* Implemented the `set()` method to modify existing elements.
+* Implemented the `size()` method to return the current number of stored elements.
+* Implemented the `capacity()` method to expose the current allocated storage capacity.
+* Implemented the `empty()` method to determine whether the container contains any elements.
+* Implemented the `clear()` method to logically remove all elements by resetting the size counter.
+* Tested all methods with multiple data types including integers, characters, doubles, and strings.
+* Verified correct behavior for empty arrays and invalid index access.
+
+**Outcome:**
+Successfully completed the remaining DynamicArray functionality:
+
+* `get()`
+* `set()`
+* `size()`
+* `capacity()`
+* `empty()`
+* `clear()`
+
+The DynamicArray now provides complete element access, state inspection, and utility operations. Combined with the previously implemented constructors, destructor, copy semantics, resizing, insertion, removal, and append functionality, the DynamicArray implementation is now feature-complete.
+
+---

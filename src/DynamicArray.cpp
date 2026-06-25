@@ -135,3 +135,55 @@ void DynamicArray<T>::remove(int index)
 
     size_--;
 }
+
+//get
+template<typename T>
+T DynamicArray<T>::get(int index) const
+{
+    if (index < 0 || index >= size_)
+    {
+        throw std::out_of_range("Index out of range");
+    }
+
+    return data_[index];
+}
+
+//set
+template<typename T>
+void DynamicArray<T>::set(int index, T value)
+{
+    if (index < 0 || index >= size_)
+    {
+        throw std::out_of_range("Index out of range");
+    }
+
+    data_[index] = value;
+}
+
+//size
+template<typename T>
+int DynamicArray<T>::size() const
+{
+    return size_;
+}
+
+//capacity
+template<typename T>
+int DynamicArray<T>::capacity() const
+{
+    return capacity_;
+}
+
+//empty
+template<typename T>
+bool DynamicArray<T>::empty() const
+{
+    return size_ == 0;
+}
+
+//clear
+template<typename T>
+void DynamicArray<T>::clear()
+{
+    size_ = 0;
+}
