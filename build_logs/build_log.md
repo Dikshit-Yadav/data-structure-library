@@ -166,3 +166,30 @@ Successfully completed the remaining DynamicArray functionality:
 The DynamicArray now provides complete element access, state inspection, and utility operations. Combined with the previously implemented constructors, destructor, copy semantics, resizing, insertion, removal, and append functionality, the DynamicArray implementation is now feature-complete.
 
 ---
+
+## Entry 6
+
+**Date:** June 26, 2026
+
+**Duration:** 1.5 Hours
+
+**Goal:**
+Optimize the DynamicArray implementation by handling trivial and non-trivial data types differently during object construction, destruction, copying, and resizing.
+
+**Problem Encountered:**
+Initially, the implementation used placement new and explicit destructor calls for every data type. While this works correctly, it is unnecessary for trivial types such as `int`, `char`, and `double` because they do not require constructors or destructors. I needed to understand when object lifetime management is actually required.
+
+**What I Tried:**
+
+* Studied the differences between trivial and non-trivial types.
+* Learned how placement new constructs objects in pre-allocated memory.
+* Investigated why classes like `std::string` require placement new while primitive types do not.
+* Used C++ type traits (`std::is_trivially_copyable` and `std::is_trivially_destructible`) to distinguish between the two categories.
+* Optimized the copy constructor, assignment operator, resize, append, insert, remove, and destructor to perform different operations based on the type.
+* Used direct assignment or `memcpy` for trivial types.
+* Continued using placement new and explicit destructor calls for non-trivial types to correctly manage object lifetimes.
+
+**Outcome:**
+The DynamicArray now supports both trivial and non-trivial data types efficiently. Primitive types avoid unnecessary construction and destruction overhead, while complex objects such as `std::string` and user-defined classes are constructed and destroyed correctly. This optimization makes the implementation closer to how production-quality containers manage different object types.
+
+---
