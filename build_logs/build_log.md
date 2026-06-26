@@ -193,3 +193,29 @@ Initially, the implementation used placement new and explicit destructor calls f
 The DynamicArray now supports both trivial and non-trivial data types efficiently. Primitive types avoid unnecessary construction and destruction overhead, while complex objects such as `std::string` and user-defined classes are constructed and destroyed correctly. This optimization makes the implementation closer to how production-quality containers manage different object types.
 
 ---
+
+
+## Entry 7
+
+**Date:** June 26, 2026
+
+**Duration:**  45 Minutes
+
+**Goal:**
+Test all public methods of the DynamicArray implementation.
+
+**Problem Encountered:**
+Ensuring that all operations worked correctly for both normal and edge-case inputs.
+
+**What I Tried:**
+
+* Tested constructors and copy operations.
+* Verified `append()`, `insert()`, `remove()`, and `resize()`.
+* Tested `get()`, `set()`, `size()`, `capacity()`, `empty()`, and `clear()`.
+* Validated exception handling for invalid indices.
+* Tested with multiple data types (`int`, `char`, `double`, `std::string`, and custom structures).
+
+**Outcome:**
+All DynamicArray methods worked as expected. Memory management, deep copying, resizing, and exception handling behaved correctly across different data types.
+
+---

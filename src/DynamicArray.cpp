@@ -25,9 +25,7 @@ DynamicArray<T>::DynamicArray(const DynamicArray &other)
     if constexpr (std::is_trivially_copyable_v<T>)
     {
         std::memcpy(data_, other.data_, sizeof(T) * size_);
-    }
-    else
-    {
+    }else{
         for (int i = 0; i < size_; i++)
             new (data_ + i) T(other.data_[i]);
     }
@@ -79,9 +77,7 @@ DynamicArray<T> &DynamicArray<T>::operator=(const DynamicArray &other)
     if constexpr (std::is_trivially_copyable_v<T>)
     {
         std::memcpy(data_, other.data_, sizeof(T) * size_);
-    }
-    else
-    {
+    } else{
         for (int i = 0; i < size_; i++)
             new (data_ + i) T(other.data_[i]);
     }
