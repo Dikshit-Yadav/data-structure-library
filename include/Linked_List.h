@@ -6,19 +6,21 @@
 #include <new>
 
 template <typename T>
-class LinkedList {
+class LinkedList
+{
 private:
-    struct Node {
+    struct Node
+    {
         T data;
-        Node* prev;
-        Node* next;
+        Node *prev;
+        Node *next;
 
         Node(T value)
             : data(value), prev(nullptr), next(nullptr) {}
     };
 
-    Node* head_;
-    Node* tail_;
+    Node *head_;
+    Node *tail_;
     int size_;
 
 public:
@@ -27,30 +29,33 @@ public:
 
     // rule of three
     ~LinkedList();
-    LinkedList(const LinkedList& other);
-    LinkedList& operator=(const LinkedList& other);
+    LinkedList(const LinkedList &other);
+    LinkedList &operator=(const LinkedList &other);
 
     // insertion
     void insertFront(T value);
     void insertBack(T value);
     void insert(int index, T value);
 
-     // deletion
+    // deletion
     void deleteFront();
     void deleteBack();
     void remove(int index);
-    
-    //get
+
+    // get
     T get(int index) const;
 
+    // search
+    bool search(T value) const;
+    
     // capacity
     int size() const;
-     bool empty() const;
-     
+    bool empty() const;
+
     // utility
     void clear();
 };
 
-#include "../src/LinkedList.cpp" 
+#include "../src/LinkedList.cpp"
 
 #endif

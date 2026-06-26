@@ -274,22 +274,21 @@ void LinkedList<T>::remove(int index)
     size_--;
 }
 
-//clear
+//search
 template<typename T>
-void LinkedList<T>::clear()
+bool LinkedList<T>::search(T value) const
 {
     Node* current = head_;
 
     while (current != nullptr)
     {
-        Node* next = current->next;
-        delete current;
-        current = next;
+        if (current->data == value)
+            return true;
+
+        current = current->next;
     }
 
-    head_ = nullptr;
-    tail_ = nullptr;
-    size_ = 0;
+    return false;
 }
 
 //size
@@ -305,3 +304,14 @@ bool LinkedList<T>::empty() const
 {
     return size_ == 0;
 }
+
+//clear
+template<typename T>
+void LinkedList<T>::clear()
+{
+    while (!empty())
+    {
+        deleteFront();
+    }
+}
+

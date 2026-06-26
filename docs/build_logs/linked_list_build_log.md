@@ -58,3 +58,22 @@ Implemented deleteFront(), deleteBack(), and remove(index). Reused front and bac
 
 **Outcome:**
 Successfully implemented all deletion methods. Verified pointer updates, memory deallocation, size maintenance, and exception handling for invalid indices through testing.
+---
+
+## Entry 5
+
+**Date:** June 26, 2026
+
+**Duration:** 20 Minutes
+
+**Goal:**
+Complete the remaining utility operations for the doubly linked list.
+
+**Problem Encountered:**
+Implement clear() without duplicating deletion logic while ensuring all dynamically allocated nodes are released safely.
+
+**What I Tried:**
+Implemented search(), size(), empty(), and clear(). Reused the existing deleteFront() method inside clear() to simplify memory management and avoid code duplication. Tested all utility methods with different scenarios.
+
+**Outcome:**
+Successfully completed the LinkedList implementation. Verified searching, size tracking, empty-state checks, and complete list cleanup through testing.
